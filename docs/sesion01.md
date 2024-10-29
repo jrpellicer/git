@@ -140,6 +140,7 @@ El *área de preparación* contiene los *cambios que se añadirán a la nueva ve
    - En color *rojo*, indicando que hay un *segundo cambio* posterior que *no se ha incluido* en el área de preparación
  - Si se ejecuta un `git commit` en este momento *solamente se incorporará el primer cambio* al repositorio como nueva versión. El segundo cambio seguirá existiendo (el archivo no habrá cambiado), pero no estará guardado en el commit
  - Si se desea agregar el segundo cambio se deberá ejecutar nuevamente `git add` para añadirlo al área de preparación
+
 ### Ver historial de commits
 
 Para ver el histórico de commits en el repositorio ejecutamos `git log`:
@@ -227,7 +228,7 @@ Comprobamos el estado de los cambios:
 git status
 ```
 
-Nos aparece en rojo un archivo nuevo y aún no pasado al área de preparación.
+Nos aparece en rojo un archivo nuevo que aún no pasado al área de preparación.
 
 Lo pasamos al área de preparación (le indicamos que pase todos los archivos nuevos o modificados):
 ```bash
@@ -239,7 +240,7 @@ Y volvemos a comprobar el estado:
 git status
 ```
 
-Ahora ya nos aparece en verde. Pero nos indica que debemos hacer un commit para guardarlo en el repositorio.
+Ahora ya nos aparece en verde, pero nos indica que debemos hacer un commit para guardarlo en el repositorio.
 
 Realizamos el commit indicando un mensaje que nos permita identificar en qué consiste esa actualización.
 ```bash
@@ -248,7 +249,7 @@ git commit -m "Commit inicial"
 
 Si volvemos a ejecutar un `git status` ya se nos informa que no hay ningún cambio pendiente de commit.
 
-Vamos a modificar el fichero `extrae.py` para eliminar la siguiente línea que aparece comentada en el código:
+Vamos a modificar mediante un editor de texto el fichero `extrae.py` para eliminar la siguiente línea que aparece comentada en el código:
 ```python
 #    print(f"Pagina: {pagina}")
 ```
