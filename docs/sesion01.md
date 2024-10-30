@@ -125,8 +125,8 @@ Una vez que los archivos están en el área de preparación, el siguiente paso e
 ### Ignorar archivos
 Git permite ignorar archivos de manera que no se pasen al área de preparación ni a posteriores commits. Se configura creando un archivo en el que se especifican los archivos y carpetas que no deseamos incluir en el repositorio.
 
-- Archivo .gitignore
-- Plantillas de archivos [[https://github.com/github/gitignore][.gitignore]].
+- Archivo `.gitignore`
+- Plantillas de archivos [.gitignore](https://github.com/github/gitignore).
 
 Las rutas y nombres de archivo que aparezcan en el fichero `.gitignore` serán ignoradas por git siempre que no hayan sido añadidas previamente al área de preparación o al repositorio. Por ejemplo, si añadimos un archivo al área de preparación mediante `git add` y a continuación lo añadimos al fichero `.gitignore`, git lo seguirá manteniendo en el área de preparación, por lo que será incluido en el repositorio si ejecutamos un `git commit`.
 
