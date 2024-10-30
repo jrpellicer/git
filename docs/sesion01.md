@@ -101,21 +101,32 @@ El almacenamiento provisional permite a los desarrolladores elegir qué cambios 
   ```
 
 ### Rastrear cambios
+Existen 2 comandos que juntos permiten guardar cambios en el historial del proyecto de manera organizada y controlada.
+
 1. **Añadir archivos al área de preparación**:
+Cuando hacemos cambios en el proyecto, ya sea creando, modificando o eliminando archivos, estos cambios no se agregan automáticamente al historial de Git. Primero, se deben preparar esos cambios, y aquí es donde entra el comando `git add`.
+Este comando toma los cambios en los archivos y los coloca en el *área de preparación*. Este es un espacio temporal donde Git reúne todos los cambios que se quieren incluir en el próximo commit. Hasta que no se agreguen los cambios al área de preparación, Git no los tendrá en cuenta para el commit.
+
    ```bash
-   git add <archivo>  
-   git add .            # Usamos este comando para añadir todos los cambios
+   git add <archivo>    # Añade un sólo archivo al área de preparación.
+   git add .            # Usamos este comando para añadir todos los cambios.
    ```
+Después de usar `git add`, los archivos están en el área de preparación y listos para ser confirmados en el siguiente commit.
 
 2. **Guardar cambios (commit)**:
+Una vez que los archivos están en el área de preparación, el siguiente paso es "confirmar" esos cambios en el historial del repositorio. `git commit` crea un snapshot (instantánea) de los cambios actuales, lo cual permite llevar un registro de las versiones del proyecto.
+
+`git commit` toma los archivos del área de preparación y los guarda como un nuevo commit en el historial de Git. Cada commit tiene un identificador único y un mensaje de commit, y representa un punto en el tiempo del proyecto.
+
    ```bash
    git commit -m "Descripción breve de los cambios"
    ```
 
 ### Ignorar archivos
+Git permite ignorar archivos de manera que no se pasen al área de preparación ni a posteriores commits. Se configura creando un archivo en el que se especifican los archivos y carpetas que no deseamos incluir en el repositorio.
 
 - Archivo .gitignore
-- Plantillas de archivos .gitignore.
+- Plantillas de archivos [[https://github.com/github/gitignore][.gitignore]].
 
 Las rutas y nombres de archivo que aparezcan en el fichero `.gitignore` serán ignoradas por git siempre que no hayan sido añadidas previamente al área de preparación o al repositorio. Por ejemplo, si añadimos un archivo al área de preparación mediante `git add` y a continuación lo añadimos al fichero `.gitignore`, git lo seguirá manteniendo en el área de preparación, por lo que será incluido en el repositorio si ejecutamos un `git commit`.
 
