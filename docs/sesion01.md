@@ -3,6 +3,18 @@ layout: page
 title: Introducción a Git
 nav_order: 1
 ---
+# Introducción a Git
+
+{: .no_toc }
+
+<details open markdown="block">
+  <summary>
+    Tabla de contenidos
+  </summary>
+  {: .text-delta }
+- TOC
+{:toc}
+</details>
 
 ## 1. ¿Qué es Git?
 
@@ -17,16 +29,20 @@ nav_order: 1
 
 ### Aspectos básicos de Git
 
-Cada vez que se guarda el trabajo, Git crea una confirmación. Una confirmación es una instantánea de todos los archivos en un momento dado. Si un archivo no ha cambiado de una confirmación a la siguiente, Git usa el archivo almacenado anteriormente.
+Cada vez que se guarda el trabajo, Git crea una confirmación (`commit`). Un commit es una instantánea de todos los archivos en un momento dado. Si un archivo no ha cambiado de una confirmación a la siguiente, Git usa el archivo almacenado anteriormente.
 
 ![Linear graph of development in Git](https://learn.microsoft.com/es-es/devops/_img/linear_straight_line.png)
 
 
-Las confirmaciones crean vínculos a otras confirmaciones, formando un gráfico del historial de desarrollo. Es posible revertir el código a una confirmación anterior, inspeccionar cómo cambian los archivos de una confirmación a la siguiente y revisar información como dónde y cuándo se realizaron los cambios. Las confirmaciones se identifican en Git mediante un hash criptográfico único del contenido de la confirmación. Dado que todo tiene hash, es imposible realizar cambios, perder la información o dañar los archivos sin que Git lo detecte.
+Las confirmaciones crean vínculos a otras confirmaciones, formando un grafo del historial de desarrollo. Es posible revertir el código a una confirmación anterior, o inspeccionar cómo cambian los archivos de una confirmación a la siguiente. 
+
+Las confirmaciones se identifican en Git mediante un hash criptográfico único. 
 
 ### Ramas
 
-Cada desarrollador guarda los cambios en su propio repositorio de código local. Como resultado, puede haber muchos cambios diferentes basados en la misma confirmación. Git proporciona herramientas para aislar los cambios y volver a combinarlos posteriormente. Las ramas, que son punteros ligeros para el trabajo en curso, administran esta separación. Una vez finalizado el trabajo creado en una rama, se puede combinar de nuevo en la rama principal (o troncal) del equipo.
+Cada desarrollador guarda los cambios en su propio repositorio de código local. Como resultado, puede haber muchos cambios diferentes basados en la misma confirmación. Git proporciona herramientas para aislar los cambios y volver a combinarlos posteriormente. 
+
+Las ramas son punteros que administran esta separación. Una vez finalizado el trabajo creado en una rama, se puede combinar de nuevo en la rama principal (*master*) del equipo.
 
 ![Commits on a branch](https://learn.microsoft.com/es-es/devops/_img/branching_line.png)
 
@@ -223,7 +239,7 @@ git config --global user.email correo@edu.gva.es
 
 Comenzamos ya nuestro proyecto creando un directorio de trabajo y situándonos en él:
 ```bash
-md clasificacion
+mkdir clasificacion
 cd clasificacion
 ```
 
