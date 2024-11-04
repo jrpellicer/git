@@ -180,7 +180,7 @@ Visualizamos el historial de cambios:
 git log --oneline --all --graph
 ```
 
-Vamos a situarnos en la rama `master` y a realizar un cambio.
+Vamos a situarnos en la rama `master` y a realizar un cambio. Para ello comenzamos con cambiar de rama mediante el comando `git checkout`:
 ```bash
 git checkout master
 ```
