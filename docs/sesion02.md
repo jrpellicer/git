@@ -123,10 +123,111 @@ A continuación creamos un repositorio dentro del directorio de trabajo:
 git init
 ```
 
-Con un editor de texto creamos un fichero llamado `extrae.py` y copiamos en él el contenido del siguiente [programa](./extrae.py).
+Con un editor de texto creamos un fichero llamado `frutas.txt` e insertamos el siguiente contenido:
+```
+manzanas
+peras
+uva
+```
 
+Guardamos en el repositorio:
+```bash
+git add .
+git commit -m "Commit inicial"
+```
 
+Vamos a realizar una segunda versión del fichero `frutas.txt` y añadimos una nueva línea al final del fichero:
+```
+naranjas
+```
 
+Guardamos en el repositorio:
+```bash
+git add .
+git commit -m "Modificamos frutas para añadir naranjas"
+```
+
+Vamos a crear una nueva rama y nos situamos en ella:
+```bash
+git checkout -b "new-feature"
+```
+
+Creamos un nuevo fichero llamado `legumbres.txt` con el siguiente contenido:
+```
+garbanzos
+lentejas
+```
+
+Lo añadimos al repositorio. Como estamos situados en la rama `new-feature` no afectará a la rama `master` (o `main`):
+```bash
+git add .
+git commit -m "Nuevo fichero legumbres"
+```
+
+Vamos a realizar una segunda versión del fichero `legumbres.txt` y añadimos una nueva línea al final del fichero:
+```
+guisantes
+```
+
+Guardamos en el repositorio:
+```bash
+git add .
+git commit -m "Modificamos legumbres para añadir guisantes"
+```
+
+Visualizamos el historial de cambios:
+```bash
+git log --oneline --all --graph
+```
+
+Vamos a situarnos en la rama `master` y a realizar un cambio.
+```bash
+git checkout master
+```
+
+Si visualizamos el contenido de nuestro directorio veremos que ha desaparecido el fichero `legumbres.txt`, puesto que estamos en la rama `master` y ese fichero sólo existe en la rama `new-feature`.
+```bash
+ls
+```
+
+Vamos a modificar el fichero `frutas.txt` para añadir una nueva línea:
+```
+plátanos
+```
+
+Guardamos en el repositorio:
+```bash
+git add .
+git commit -m "Modificamos frutas para añadir plátanos"
+```
+
+Visualizamos el historial de cambios:
+```bash
+git log --oneline --all --graph
+```
+
+Nos aparecen las 2 ramas con sus cambios. Vamos a unir el contenido de la rama `new-feature` con la rama `master`. **IMPORTANTE: Es necesario estar situados en la rama en la que deseamos dejar los cambios**
+```bash
+git merge new-feature
+```
+
+Si realizamos un `ls` para visualizar el contenido de nuestro directorio de trabajo veremos que ya nos aparece el fichero `legumbres.txt`. Des mismo modo podemos ver el historial de commits en la rama `master`:
+```
+git log --oneline --graph
+```
+
+```
+*   fe2f0ab (HEAD -> master) Merge branch 'new-feature'
+|\
+| * 3503286 (new-feature) Modificamos legumbres para añadir guisantes
+| * 6f5937c Nuevo fichero legumbres
+* | 2929c5c Modificamos frutas para añadir plátanos
+|/
+* d7fadfa Modificamos frutas para añadir naranjas
+* 4378cea Commit inicial
+```
+
+Si hubiéramos realizado ningún cambio sobre el fichero `frutas.txt` en la rama `new-feature`, al hacer el merge habría una colisión con el cambio que se ha hecho en la rama `master` después de haber creado la rama `new-feature`, y correspondería al usuario resolver el conflicto de manera manual.
 
 ---
 
